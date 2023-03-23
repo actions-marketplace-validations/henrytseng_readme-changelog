@@ -1,27 +1,26 @@
-const sdk = require('api')('@developers/v2.0#v2r3flfim83js');
-const { context, getOctokit } = require("@actions/github");
-const { info, getInput, setOutput, setFailed } = require("@actions/core");
-const { compareVersions, validate } = require("compare-versions");
-
-const {
-  repo: { owner, repo },
-} = context;
+const sdk = require("api")("@developers/v2.0#v2r3flfim83js");
+const { getInput } = require("@actions/core");
 
 async function run() {
   const apiKey = getInput("apikey", { required: true });
   const isHidden = getInput("hidden", { required: false });
+  const title = getInput("title", { required: false });
+  const body = getInput("body", { required: false });
+
+  if (body === "") return;
 
   // Create entry
   sdk.auth(apiKey);
-  sdk.createChangelog({
-      title: getInput("title", { required: false }),
-      body: getInput("body", { required: false }),
-      hidden: isHidden
-  })
-    .then(function({ data }) {
+  sdk
+    .createChangelog({
+      title: title,
+      body: body,
+      hidden: isHidden,
+    })
+    .then(function ({ data }) {
       console.log(data);
     })
-    .catch(err => console.error(err));
+    .catch((err) => console.error(err));
 }
 
-run()
+run();
