@@ -31,7 +31,6 @@ jobs:
       - name: Create changelog entry
         uses: henrytseng/readme-change.log
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           apikey: ${{ secrets.README_APIKEY }}
           title: Release ${{ github.ref }}
           body: ${{ steps.changelog.outputs.changes }}
