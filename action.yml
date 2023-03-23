@@ -11,6 +11,9 @@ inputs:
   body:
     description: Body for changelog entry
     required: false
+  hidden:
+    description: Post a hidden entry
+    required: false
 runs:
   using: node16
   main: "src/index.js"

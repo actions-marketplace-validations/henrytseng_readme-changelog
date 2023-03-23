@@ -1,6 +1,6 @@
 {
   "name": "readme-changelog",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "Creates a change log entry in ReadMe",
   "main": "src/index.js",
   "scripts": {
