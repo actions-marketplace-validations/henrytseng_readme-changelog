@@ -1,0 +1,16 @@
+name: Update ReadMe Change Log
+description: Creates a change log entry in ReadMe
+author: Henry Tseng
+inputs:
+  apikey:
+    description: ReadMe API key
+    required: true
+  title:
+    description: Title for changelog entry
+    required: false
+  body:
+    description: Body for changelog entry
+    required: false
+runs:
+  using: node16
+  main: "dist/index.js"

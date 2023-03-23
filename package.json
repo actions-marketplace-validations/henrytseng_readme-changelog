@@ -1,12 +1,12 @@
 {
   "name": "readme-changelog",
   "version": "0.0.1",
-  "description": "Creates a change log entry in ReadMe.io",
+  "description": "Creates a change log entry in ReadMe",
   "main": "src/index.js",
   "scripts": {
-    "package": "npm run lint",
-    "act": "npm run package && act",
-    "lint": "eslint src --fix",
+    "build": "eslint src --fix",
+    "act": "npm run build && act",
+    "lint": "eslint src",
     "test": "mocha 'tests/*.spec.js'"
   },
   "author": "Henry Tseng",
@@ -15,12 +15,13 @@
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.0",
     "@conventional-commits/parser": "^0.4.1",
+    "api": "^5.0.8",
     "compare-versions": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^8.26.0",
     "eslint-plugin-prettier": "^4.2.0",
-    "mocha": "^10.1.0",
+    "mocha": "^10.2.0",
     "prettier": "^2.7.0"
   }
 }
